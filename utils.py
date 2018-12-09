@@ -50,6 +50,8 @@ def grayscale2RGB(im):
 def readImageNName(impath1):
     imname1 = "".join(os.path.basename(impath1).split(".")[:-1])
     im1 = skio.imread(impath1)
+    if im1.ndim == 1:
+        im1 = im1[0]
     im1 = sk.img_as_float(im1)
     return im1, imname1
 
