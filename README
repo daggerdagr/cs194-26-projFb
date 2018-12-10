@@ -1,0 +1,14 @@
+TO RUN SIMPLE, PRESET SCENARIOS
+    uncomment 1+ of the functions in main.py
+
+    some functions have the following parameters:
+        bumpSatBool
+            to bump up the saturation in the photo, make it more miniatures-looking
+        usePresetBlurMaskBool
+            set to True if you want to use preset gradient/soft mask
+            set to False if you want to create your own gradient/soft mask
+        usePresetObjMaskBool
+            set to True if you want to use preset complex object mask
+            set to False if you want to create your own complex object mask
+
+miniature.py

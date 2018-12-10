@@ -37,7 +37,7 @@ def getGradientMask(im, sigma, points=None, printMask=False):
 
 def generateMask(im, maskStrength, maskPoints=None, objMask=False, objMaskPoints=None, debugB=False):
     if maskPoints is None:
-        maskPoints = getPoints(im, -4, "Pick 2+ coords of line/area of gradient. Press ESC when done.")
+        maskPoints = getPoints(im, -4, "Pick 2+ coords of line/area of gradient. Press ESC or close window when done.")
         assert len(maskPoints) >= 2
     mask = getGradientMask(im, maskStrength, maskPoints, printMask=debugB)
 
@@ -45,7 +45,7 @@ def generateMask(im, maskStrength, maskPoints=None, objMask=False, objMaskPoints
 
     if objMask:
         if objMaskPoints is None:
-            objMaskPoints = getPoints(im, -1, "Pick 0+ coords off polygon for mask. Press ESC when done.")
+            objMaskPoints = getPoints(im, -1, "Pick 0+ coords off polygon for mask. Press ESC or close window when done.")
         mask = np.clip(mask + createPolygon(im, objMaskPoints), 0, 1)
         if debugB:
             printImage("mask_%s_wObjM.jpg" % pathName, mask)
