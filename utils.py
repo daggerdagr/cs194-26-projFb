@@ -78,12 +78,14 @@ def fileToString(fileName):
     f.close()
     return content
 
-def getPoints(im, n):
+def getPoints(im, n, message = None):
     n = int(n)
     plt.imshow(im.imArr)
+    if message != None:
+        plt.title(message)
     points = plt.ginput(n, timeout = 300, show_clicks=True)
     plt.close()
-    print("Points gotten from", im.name, ":", str(points))
+    print("Points gotten from", im.name, "w/ (x, y) format:", str(points))
     return np.array(points)
 
 def dispPtsOnImg(im, results, tag=False):
@@ -98,3 +100,6 @@ def dispPtsOnImgRC(im, rowInds, colInds, markersize = 1, tag=False):
             y, x = rowInds[ind], colInds[ind]
             plt.text(x, y, str(ind), bbox=dict(facecolor='blue', alpha=0.5))
             plt.text(x, y, "%d-%d" % (x,y), bbox=dict(facecolor='red', alpha=0.5))
+
+def getImgNames(directoryPath):
+    return sorted(os.listdir(directoryPath))
