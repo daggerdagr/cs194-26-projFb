@@ -1,6 +1,6 @@
 from miniature import *
 
-def farmhouse(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True):
+def farmhouse(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True, printMask = True):
     imFarm = Image.fromPath("./sample_imgs/online/farmhouse.jpg", 0.25)
     if bumpSatBool:
         imFarm.imArr = bumpSaturation(imFarm.imArr, 0.05)
@@ -22,14 +22,14 @@ def farmhouse(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool
                                (657.021858423267, 403.09685385037494)])
 
     maskFarm = generateMask(imFarm, maskStrength=100, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                            debugB=True)
+                            debugB=printMask)
     res = maskedBlur(im=imFarm, maskIm=maskFarm, largestBlurSigma=250, gaussLevelsCt=50)
     # res.imArr = bumpSaturation(res.imArr, 0.05)
     printImage("%s.png" % res.name, res.imArr)
 
 
 
-def shuttle(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True):
+def shuttle(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True, printMask = True):
     im = Image.fromPath("./sample_imgs/online/shuttle.jpg", 0.25)
 
     if bumpSatBool:
@@ -46,13 +46,13 @@ def shuttle(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=T
         objMaskPts = np.array([])
 
     maskFarm = generateMask(im, maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                            debugB=True)
+                            debugB=printMask)
     res = maskedBlur(im=im, maskIm=maskFarm, largestBlurSigma=250, gaussLevelsCt=50)
 
     printImage("%s.png" % res.name, res.imArr)
 
 
-def rocketship(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True):
+def rocketship(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True, printMask = True):
     im = Image.fromPath("./sample_imgs/online/rocketship.jpg", 0.25)
     if bumpSatBool:
         im.imArr = bumpSaturation(im.imArr, 0.05)
@@ -83,13 +83,13 @@ def rocketship(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBoo
                                (376.97489482348635, 560.5481068227547)])
 
     maskFarm = generateMask(im, maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                            debugB=True)
+                            debugB=printMask)
     res = maskedBlur(im=im, maskIm=maskFarm, largestBlurSigma=250, gaussLevelsCt=50)
     # res.imArr = bumpSaturation(res.imArr, 0.05)
     printImage("%s.png" % res.name, res.imArr)
 
 
-def uppersproul(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True):
+def uppersproul(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True, printMask = True):
     im = Image.fromPath("./sample_imgs/custom/uppersproul.jpg", 0.50)
     if bumpSatBool:
         im.imArr = bumpSaturation(im.imArr, 0.05)
@@ -107,13 +107,13 @@ def uppersproul(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBo
         objMaskPts = np.array([])
 
     maskFarm = generateMask(im, maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                            debugB=True)
+                            debugB=printMask)
     res = maskedBlur(im=im, maskIm=maskFarm, largestBlurSigma=75, gaussLevelsCt=50)
     # res.imArr = bumpSaturation(res.imArr, 0.05)
     printImage("%s.jpg" % res.name, res.imArr)
 
 
-def intersection(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True):
+def intersection(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True, printMask = True):
     im = Image.fromPath("./sample_imgs/custom/intersection.jpg", 0.50)
     if bumpSatBool:
         im.imArr = bumpSaturation(im.imArr, 0.05)
@@ -127,13 +127,13 @@ def intersection(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskB
         objMaskPts = np.array([])
 
     maskFarm = generateMask(im, maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                            debugB=True)
+                            debugB=printMask)
     res = maskedBlur(im=im, maskIm=maskFarm, largestBlurSigma=75, gaussLevelsCt=50)
     # res.imArr = bumpSaturation(res.imArr, 0.05)
     printImage("%s.jpg" % res.name, res.imArr)
 
 
-def lowersproul(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True):
+def lowersproul(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBool=True, printMask = True):
     im = Image.fromPath("./sample_imgs/custom/lowersproul.jpg", 0.50)
     if bumpSatBool:
         im.imArr = bumpSaturation(im.imArr, 0.05)
@@ -147,13 +147,13 @@ def lowersproul(bumpSatBool=True, usePresetBlurMaskBool=True, usePresetObjMaskBo
         objMaskPts = np.array([])
 
     maskFarm = generateMask(im, maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                            debugB=True)
+                            debugB=printMask)
     res = maskedBlur(im=im, maskIm=maskFarm, largestBlurSigma=150, gaussLevelsCt=50)
     # res.imArr = bumpSaturation(res.imArr, 0.05)
     printImage("%s.jpg" % res.name, res.imArr)
 
 
-def uppersproulGif():
+def uppersproulGif(printMask = True):
     totalDirPath = "./sample_imgs/custom/burst"
     fileList = getImgNames(totalDirPath)
     completeFileList = ["%s/%s" % (totalDirPath, imName) for imName in fileList]
@@ -166,7 +166,7 @@ def uppersproulGif():
     objMaskPts = np.array([])
 
     mask = generateMask(imList[0], maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                        debugB=True)
+                        debugB=printMask)
 
     results = []
     for im in imList:
@@ -176,7 +176,7 @@ def uppersproulGif():
     convertToGif("uppersproul", results, resizeFactor=None)
 
 
-def lowersproulGif():
+def lowersproulGif(printMask = True):
     totalDirPath = "./sample_imgs/custom/burst2"
     fileList = getImgNames(totalDirPath)
     completeFileList = ["%s/%s" % (totalDirPath, imName) for imName in fileList]
@@ -186,7 +186,7 @@ def lowersproulGif():
     objMaskPts = np.array([])
 
     mask = generateMask(imList[0], maskStrength=50, maskPoints=maskPts, objMask=True, objMaskPoints=objMaskPts,
-                        debugB=True)
+                        debugB=printMask)
 
     results = []
     for im in imList:

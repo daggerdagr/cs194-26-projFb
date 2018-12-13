@@ -1,5 +1,5 @@
 TO RUN SIMPLE, PRESET SCENARIOS
-    uncomment 1+ of the functions in main.py
+    uncomment at least 1 of the functions in main.py
 
     some functions have the following parameters:
         bumpSatBool
@@ -10,5 +10,37 @@ TO RUN SIMPLE, PRESET SCENARIOS
         usePresetObjMaskBool
             set to True if you want to use preset complex object mask
             set to False if you want to create your own complex object mask
+        printMask
+            set to True if you want to print out the masks as they get made
+            set to False if not
+
+        IMPORTANT: creating your own mask involves inputting your own coordinates using ginput. make sure ginput works. to stop inputting coordinates, you either have to press escape or close the window -- one of those. it works in pycharm so hopefully it works in other formats... (otherwise just use the preset masks. sorry :[ )
 
 miniature.py
+    contains all the main logic, including:
+
+    for creating a mask:
+        createPolygon()
+            create a mask of a polygon from the given coordinates (assuming order)
+
+        getGradientMask()
+            create a "soft-polygon" mask from the given coordinates. works with lines (you just input 2 coordinates) and polygons (2+ coordinates)
+
+        generateMask()
+            just combines the two above
+
+    for applying the mask and blur together:
+
+        maskedBlur()
+
+    for bumping the saturation:
+
+        bumpSaturation()
+
+outputMake.py
+
+    despite its name, it's for making gauss stacks
+
+utils.py
+
+    custom image-making utilities. it's for my use, mainly.
